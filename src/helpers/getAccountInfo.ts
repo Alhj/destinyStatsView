@@ -38,7 +38,7 @@ const getAccountStats = async (platformNumber: string | undefined, userName: str
     headers: header
   };
 
-  const accoutnData: responsAllChars = await fetch(`https://destinystatsapi.herokuapp.com//stats/${platformNumber}/${userName}`, config).then(res => res.json());
+  const accoutnData: responsAllChars = await fetch(`https://destinystatsapi.herokuapp.com/stats/${platformNumber}/${userName}`, config).then(res => res.json());
   return accoutnData.Response
 };
 
@@ -58,6 +58,7 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
 
   const respons: profilId | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/profil/${platformNumber}/${displayName}`, config).then(res => res.json());
 
+  console.log(respons);
 
   return respons;
 
