@@ -1,0 +1,45 @@
+.characterInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8em;
+}
+
+.characterInfo h2 {
+  color: white;
+  align-self: flex_start;
+}
+
+.emblem {
+  width: 20%;
+  background-size: cover;
+}
+
+.characterLigth {
+  order: 2;
+  color: rgb(245, 220, 86);
+}
+.activitySelect {
+  display: flex;
+  justify-content: space-between;
+  width: 5%;
+  cursor: pointer;
+}
+
+.activitySelect h3{
+  border-top: 1.5px solid black;
+  border-right: 1.5px solid black;
+  border-left: 1.5px solid black;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-bottom: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .emblem {
+    width: 50%;
+    background-size: cover;
+  }
+}

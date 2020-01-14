@@ -1,0 +1,74 @@
+.SearchBar{
+  height: 30px;
+  display: flex;
+}
+
+.SearchBar select {
+  height: 100%;
+  border: none;
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+  background-color: #d6d6d6;
+}
+
+.SearchBar input {
+  height: 100%;
+  border: none;
+  padding: 0;
+}
+
+.SearchBar select, .SearchBar input, .SearchBar button {
+  font-size: 1.1em;
+  padding: 0 10px;
+}
+
+.SearchBar button {
+  height: 100%;
+  border: none;
+  border-left: 0.05em solid black;
+  cursor: pointer;
+  background-color: white;
+  border-top-right-radius: 99px;
+  border-bottom-right-radius: 99px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .SearchBar{
+    height: 50px;
+  }
+  
+  .SearchBar input {
+    border-top-right-radius: 99px;
+    border-bottom-right-radius: 99px;
+  }
+  
+  .SearchBar select {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .SearchBar button {
+    display: block;
+    border-left: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 27.5%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .SearchBar {
+    display: block;
+  }
+  .SearchBar input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .SearchBar input, .SearchBar select, .SearchBar button {
+    margin: 4px
+  }
+}
