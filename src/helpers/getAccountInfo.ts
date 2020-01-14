@@ -7,14 +7,12 @@ const getAccountInfo = async (platformNumber: string | undefined, accountName: s
 
   const apiKey: string | null = apiKeyRespons.headers.get('authorization');
 
-  const header: HeadersInit = new Headers();
+ /* const header: HeadersInit = new Headers();
 
   header.set('authorization', `${apiKey}`)
-
-  const config = {
-    headers: header
-  }
-  const accoutnData: respons | errorInFetch = await fetch(`/character/${platformNumber}/${accountName}`, config).then(res => res.json());
+*/
+ 
+  const accoutnData: respons | errorInFetch = await fetch(`/character/${platformNumber}/${accountName}`).then(res => res.json());
 
   if ((accoutnData as errorInFetch).error) {
     return (accoutnData as errorInFetch);
