@@ -3,7 +3,7 @@ import { responsAllChars, errorInFetch, profilId } from '../types/types';
 
 const getAccountInfo = async (platformNumber: string | undefined, accountName: string | undefined) => {
 
-  const apiKeyRespons = await fetch('https://destinystatsapi.herokuapp.com//apiKey');
+  const apiKeyRespons = await fetch('https://destinystatsapi.herokuapp.com/apiKey');
 
   const apiKey: string | null = apiKeyRespons.headers.get('authorization');
 
@@ -14,6 +14,8 @@ const getAccountInfo = async (platformNumber: string | undefined, accountName: s
   const config = {
     headers: header
   }
+
+  console.log(config)
   const accoutnData: respons | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/character/${platformNumber}/${accountName}`, config).then(res => res.json());
 
   if ((accoutnData as errorInFetch).error) {
