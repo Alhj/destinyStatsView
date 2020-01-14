@@ -15,6 +15,8 @@ const GetPlayerProfil = () => {
   const loading = async () => {
     const respons = await getAccountProfil(membershipType, displayName);
 
+    console.log(respons);
+
     if((respons as errorInFetch).error) {
       history.push('/')
     } else {

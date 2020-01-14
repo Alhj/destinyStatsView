@@ -44,6 +44,7 @@ const getAccountStats = async (platformNumber: string | undefined, userName: str
 
 const getAccountProfil = async (platformNumber: string | undefined, displayName: string | undefined) => {
 
+
   const apiKeyRespons = await fetch('https://destinystatsapi.herokuapp.com/apiKey');
 
   const apiKey: string | null = apiKeyRespons.headers.get('authorization');
