@@ -50,7 +50,11 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
 
   const header: HeadersInit = new Headers();
 
-  console.log(apiKey)
+  if(apiKey) {
+    console.log(apiKey);
+  } else {
+    console.log('no key');
+  }
 
   header.set('authorization', `${apiKey}`);
 
@@ -58,11 +62,7 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
     headers: header
   };
 
-
-  
-
   const respons: profilId | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/profil/${platformNumber}/${displayName}`, config).then(res => res.json());
-
 
   console.log(respons);
 
