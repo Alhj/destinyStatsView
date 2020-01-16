@@ -50,7 +50,7 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
 
   const header: HeadersInit = new Headers();
 
-  console.log(apiKeyRespons)
+  console.log(apiKey)
 
   header.set('authorization', `${apiKey}`);
 
