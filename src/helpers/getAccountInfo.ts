@@ -16,6 +16,9 @@ const getAccountInfo = async (platformNumber: string | undefined, accountName: s
   }
   const accoutnData: respons | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/character/${platformNumber}/${accountName}`, config).then(res => res.json());
 
+
+  console.log(accoutnData);
+
   if ((accoutnData as errorInFetch).error) {
     return (accoutnData as errorInFetch);
   } else {
