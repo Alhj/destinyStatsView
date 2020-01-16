@@ -39,7 +39,7 @@
 
 @media only screen and (max-width: 600px) {
   .emblem {
-    width: 50%;
+    width: 100%;
     background-size: cover;
   }
 }

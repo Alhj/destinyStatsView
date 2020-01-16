@@ -7,26 +7,23 @@ import { profilId, errorInFetch } from "../../types/types";
 import Loading from "../loading/loading";
 
 const GetPlayerProfil = () => {
-  
-  const {membershipType, displayName} = useParams();
+  const { membershipType, displayName } = useParams();
 
   const history = useHistory();
 
   const loading = async () => {
     const respons = await getAccountProfil(membershipType, displayName);
 
-    console.log(respons);
-
-    if((respons as errorInFetch).error) {
-      history.push('/')
+    if ((respons as errorInFetch).error) {
+      history.goBack();
     } else {
       const id = (respons as profilId).Respons;
-      history.push(`/account/${membershipType}/${id}`)
+      history.push(`/account/${membershipType}/${id}`);
     }
-  }
-  
+  };
+
   useEffect(() => {
-    loading()
+    loading();
   });
 
   return <Loading />;

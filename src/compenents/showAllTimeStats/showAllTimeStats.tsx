@@ -12,6 +12,22 @@ const showAllTimeStats = (props: propsInterface) => {
 
   return (
     <div>
+      <div className='abilty'>
+        <h2>Abilitys</h2>
+        <div className="cointener">
+          <div className="item">
+            <h3>
+              Grenade kills: {stats.weaponKillsGrenade.basic.value}
+            </h3>
+            <h3>
+              Melee kills: {stats.weaponKillsMelee.basic.value}
+            </h3>
+            <h3>
+              Super kills: {stats.weaponKillsSuper.basic.value}
+            </h3>
+          </div>
+        </div>
+      </div>
       <div className="primary">
         <h2>priamary weapon</h2>
         <div className="cointener">
@@ -21,7 +37,7 @@ const showAllTimeStats = (props: propsInterface) => {
             </h3>
           </div>
           <div className="item">
-            <h3>Sidearms: {stats.weaponKillsSideArm.basic.value}</h3>
+            <h3>Sidearms kills: {stats.weaponKillsSideArm.basic.value}</h3>
           </div>
           <div className="item">
             <h3>

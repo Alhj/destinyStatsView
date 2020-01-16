@@ -5,14 +5,16 @@
 
 .primary,
 .special,
-.heavy {
+.heavy,
+.abilty {
   border-top: 1px solid black;
   background-color: #929191;
 }
 
 .primary h2,
 .special h2,
-.heavy h2 {
+.heavy h2,
+.abilty h2 {
   border-bottom: 2px solid;
   border-right: 2px solid;
   border-bottom-right-radius: 99px;
@@ -34,7 +36,8 @@
 @media only screen and (max-width: 600px) {
   .primary h2,
   .special h2,
-  .heavy h2 {
+  .heavy h2,
+  .abilty h2 {
     border-bottom: 2px solid;
     border-right: 2px solid;
     border-bottom-right-radius: 99px;
@@ -48,4 +51,21 @@
   .item {
     flex: 2 45%;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .primary h2,
+  .special h2,
+  .heavy h2,
+  .abilty h2 {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-bottom-right-radius: 99px;
+    display: flex;
+    width: 36%;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+  }
+
 }
