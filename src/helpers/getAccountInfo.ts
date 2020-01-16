@@ -16,9 +16,6 @@ const getAccountInfo = async (platformNumber: string | undefined, accountName: s
   }
   const accoutnData: respons | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/character/${platformNumber}/${accountName}`, config).then(res => res.json());
 
-
-  console.log(accoutnData);
-
   if ((accoutnData as errorInFetch).error) {
     return (accoutnData as errorInFetch);
   } else {
@@ -53,14 +50,21 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
 
   const header: HeadersInit = new Headers();
 
+  console.log(apiKeyRespons)
+
   header.set('authorization', `${apiKey}`);
 
   const config = {
     headers: header
   };
 
+
+  
+
   const respons: profilId | errorInFetch = await fetch(`https://destinystatsapi.herokuapp.com/profil/${platformNumber}/${displayName}`, config).then(res => res.json());
 
+
+  console.log(respons);
 
   return respons;
 
