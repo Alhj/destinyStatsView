@@ -1,6 +1,7 @@
 import { allCharactersStats, allStats } from '../../types/types';
+import { activityPvEPVP, activityStats } from '../../types/types';
 
-const genereateTemplete: () => allCharactersStats = () => {
+const genereateTempleteWeaponStats: () => allCharactersStats = () => {
   const temp: allCharactersStats = {
     pve: {
       allTime: gerenteStats()
@@ -16,13 +17,6 @@ const genereateTemplete: () => allCharactersStats = () => {
 
 const gerenteStats: () => allStats = () => {
   const temp: allStats = {
-    activitiesEntered: {
-      statId: 'none',
-      basic: {
-        value: 0,
-        displayValue: '0',
-      }
-    },
     weaponKillsAutoRifle: {
       statId: 'none',
       basic: {
@@ -155,14 +149,148 @@ const gerenteStats: () => allStats = () => {
         value: 0,
         displayValue: '0',
       }
-    }
+    },
+    weaponPrecisionKillsAutoRifle: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsBow: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsFusionRifle: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsHandCannon: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsMelee: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsPulseRifle: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsScoutRifle: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsShotgun: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsSideArm: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsSniper: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsSubmachinegun: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    weaponPrecisionKillsTraceRifle: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
   };
 
   return temp;
 };
 
+const genereateTempleteActivity = () => {
+  const temp: activityPvEPVP = {
+    pve: gerenteStatsActivity(),
+    pvp: gerenteStatsActivity()
+  };
 
+  return temp;
+}
+
+const gerenteStatsActivity = () => {
+  const obj: activityStats = {
+    activitiesEntered: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    activitiesWon: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    }, kills: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    killsDeathsRatio: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    },
+    precisionKills: {
+      statId: 'none',
+      basic: {
+        value: 0,
+        displayValue: '0',
+      }
+    }
+  };
+
+  return obj;
+}
 
 export {
-  genereateTemplete
+  genereateTempleteWeaponStats,
+  gerenteStats,
+  genereateTempleteActivity
 }

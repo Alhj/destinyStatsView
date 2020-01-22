@@ -11,9 +11,12 @@ export interface characters {
 }
 
 export interface responsAllChars {
-  status: number,
+  status: number
   message: string
-  Response: allCharactersStats
+  Response: {
+    weaponStats: allCharactersStats
+    activitystats: activityPvEPVP
+  }
 }
 
 export interface allCharactersStats {
@@ -25,6 +28,20 @@ export interface allCharactersStats {
   }
 }
 
+export interface activityPvEPVP {
+  pve: activityStats
+  pvp: activityStats
+}
+
+export interface activityStats {
+  activitiesEntered: activitiesInfoStats
+  activitiesWon: activitiesInfoStats
+  kills: weaponKillsStats
+  killsDeathsRatio: activitiesInfoStats
+  precisionKills: weaponKillsStats
+}
+
+
 export interface charactersStats {
   characterId: string
   deleted: boolean
@@ -32,26 +49,37 @@ export interface charactersStats {
 }
 
 export interface allStats {
-  activitiesEntered: activitiesEnteredStats
   weaponKillsAutoRifle: weaponKillsStats
+  weaponPrecisionKillsAutoRifle: weaponKillsStats
   weaponKillsFusionRifle: weaponKillsStats
+  weaponPrecisionKillsFusionRifle: weaponKillsStats
   weaponKillsGrenade: weaponKillsStats
   weaponKillsGrenadeLauncher: weaponKillsStats
   weaponKillsHandCannon: weaponKillsStats
+  weaponPrecisionKillsHandCannon: weaponKillsStats
   weaponKillsTraceRifle: weaponKillsStats
+  weaponPrecisionKillsTraceRifle: weaponKillsStats
   weaponKillsMachineGun: weaponKillsStats
   weaponKillsMelee: weaponKillsStats
+  weaponPrecisionKillsMelee: weaponKillsStats
   weaponKillsPulseRifle: weaponKillsStats
+  weaponPrecisionKillsPulseRifle: weaponKillsStats
   weaponKillsRocketLauncher: weaponKillsStats
   weaponKillsScoutRifle: weaponKillsStats
+  weaponPrecisionKillsScoutRifle: weaponKillsStats
   weaponKillsShotgun: weaponKillsStats
+  weaponPrecisionKillsShotgun: weaponKillsStats
   weaponKillsSniper: weaponKillsStats
+  weaponPrecisionKillsSniper: weaponKillsStats
   weaponKillsSubmachinegun: weaponKillsStats
+  weaponPrecisionKillsSubmachinegun: weaponKillsStats
   weaponKillsSuper: weaponKillsStats
   weaponKillsSideArm: weaponKillsStats
+  weaponPrecisionKillsSideArm: weaponKillsStats
   weaponKillsSword: weaponKillsStats
   weaponKillsRelic: weaponKillsStats
   weaponKillsBow: weaponKillsStats
+  weaponPrecisionKillsBow: weaponKillsStats
 }
 
 export interface errorInFetch {
@@ -67,7 +95,7 @@ export interface profilId {
 }
 
 
-interface activitiesEnteredStats {
+interface activitiesInfoStats {
   statId: string
   basic: {
     value: number,

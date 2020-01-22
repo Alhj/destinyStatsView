@@ -15,7 +15,7 @@ const GetPlayerProfil = () => {
     const respons = await getAccountProfil(membershipType, displayName);
 
     if ((respons as errorInFetch).error) {
-      history.goBack();
+      history.push('/');
     } else {
       const id = (respons as profilId).Respons;
       history.push(`/account/${membershipType}/${id}`);

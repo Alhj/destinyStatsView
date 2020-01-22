@@ -4,9 +4,11 @@ import { useParams, useHistory } from "react-router";
 import Loading from "../loading/loading";
 import ShowAllTimeStats from "../showAllTimeStats/showAllTimeStats";
 import { getAccountInfo, getAccountStats } from "../../helpers/getAccountInfo";
-import { allCharactersStats } from "../../types/types";
 import { characters, errorInFetch } from "../../types/types";
-import { genereateTemplete } from "../../helpers/genereateTemplete/generateAllStatsMocObject";
+import {
+  genereateTempleteWeaponStats,
+  genereateTempleteActivity
+} from "../../helpers/genereateTemplete/generateAllStatsMocObject";
 import "./showAccountInfo.css";
 
 const url: string = "https://www.bungie.net";
@@ -20,13 +22,13 @@ const ShowAccountInfo = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [accountCharacters, setAccountCharacters] = useState([firstChar]);
-  const [allStats, setAllStats] = useState(genereateTemplete());
+  const [allStats, setAllStats] = useState(genereateTempleteWeaponStats());
+  const [activityStats, setActivityStats] = useState(genereateTempleteActivity());
   const [witchStats, setWitchStats] = useState(true);
-  const [pvpBackgroundColor, setPvpBackgroundColor] = useState('white');
-  const [pveBackgroundColor, setPveBackgroundColor] = useState('darkgrey')
+  const [pvpBackgroundColor, setPvpBackgroundColor] = useState("white");
+  const [pveBackgroundColor, setPveBackgroundColor] = useState("darkgrey");
   const { platformNumber, accountName } = useParams();
 
-  
   const history = useHistory();
 
   const classType: (classType: number) => string = (classType: number) => {
@@ -52,13 +54,11 @@ const ShowAccountInfo = () => {
       history.push("/");
     }
 
-    const stats: allCharactersStats = await getAccountStats(
-      platformNumber,
-      accountName
-    );
+    const stats = await getAccountStats(platformNumber, accountName);
 
     setAccountCharacters(charInfo as characters[]);
-    setAllStats(stats);
+    setAllStats(stats.weaponStats);
+    setActivityStats(stats.activitystats);
     setIsLoading(true);
   };
 
@@ -102,12 +102,12 @@ const ShowAccountInfo = () => {
   const changeAcctivity = (change: boolean) => {
     if (change) {
       setWitchStats(true);
-      setPvpBackgroundColor('white');
-      setPveBackgroundColor('darkgrey');
+      setPvpBackgroundColor("white");
+      setPveBackgroundColor("darkgrey");
     } else {
       setWitchStats(false);
-      setPvpBackgroundColor('darkgrey');
-      setPveBackgroundColor('white');
+      setPvpBackgroundColor("darkgrey");
+      setPveBackgroundColor("white");
     }
   };
 
@@ -115,8 +115,18 @@ const ShowAccountInfo = () => {
     <div>
       <div className="">{chars}</div>
       <div className="activitySelect">
-        <h3 style={{backgroundColor:pvpBackgroundColor}}onClick={() => changeAcctivity(true)}>PvP</h3>
-        <h3 style={{backgroundColor:pveBackgroundColor}}onClick={() => changeAcctivity(false)}>PvE</h3>
+        <h3
+          style={{ backgroundColor: pvpBackgroundColor }}
+          onClick={() => changeAcctivity(true)}
+        >
+          PvP
+        </h3>
+        <h3
+          style={{ backgroundColor: pveBackgroundColor }}
+          onClick={() => changeAcctivity(false)}
+        >
+          PvE
+        </h3>
       </div>
       {showWitchStats()}
     </div>
