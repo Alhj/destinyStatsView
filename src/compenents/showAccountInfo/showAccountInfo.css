@@ -10,7 +10,7 @@
 }
 
 .emblem {
-  width: 20%;
+  width: 30%;
   background-size: cover;
 }
 
@@ -36,6 +36,7 @@
   padding-right: 3px;
   padding-top: 2px;
 }
+
 
 @media only screen and (max-width: 600px) {
   .emblem {

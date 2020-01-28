@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
-
-import Loading from "../loading/loading";
-import ShowAllTimeStats from "../showAllTimeStats/showAllTimeStats";
+import { useSelector } from "react-redux";
+import Loading from "../loading";
+import ShowAllTimeStats from "../showAllTimeStats";
+import ActivityStatsPvP from "../activityStatsPvP";
+import ActivityStatsPvE from '../activityStatsPvE';
 import { getAccountInfo, getAccountStats } from "../../helpers/getAccountInfo";
 import { characters, errorInFetch } from "../../types/types";
 import {
@@ -13,20 +15,28 @@ import "./showAccountInfo.css";
 
 const url: string = "https://www.bungie.net";
 
+interface state {
+  displayName: string;
+}
+
 const ShowAccountInfo = () => {
   const firstChar: characters = {
     emblemBackgroundPath: "",
     classType: 0,
     light: 0
   };
-
+  const displayName = useSelector((state: state) => {
+    return state.displayName;
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [accountCharacters, setAccountCharacters] = useState([firstChar]);
-  const [allStats, setAllStats] = useState(genereateTempleteWeaponStats());
-  const [activityStats, setActivityStats] = useState(genereateTempleteActivity());
+  const [weaponsStats, setWeaponsStats] = useState(
+    genereateTempleteWeaponStats()
+  );
+  const [activityStats, setActivityStats] = useState(
+    genereateTempleteActivity()
+  );
   const [witchStats, setWitchStats] = useState(true);
-  const [pvpBackgroundColor, setPvpBackgroundColor] = useState("white");
-  const [pveBackgroundColor, setPveBackgroundColor] = useState("darkgrey");
   const { platformNumber, accountName } = useParams();
 
   const history = useHistory();
@@ -55,16 +65,16 @@ const ShowAccountInfo = () => {
     }
 
     const stats = await getAccountStats(platformNumber, accountName);
-
     setAccountCharacters(charInfo as characters[]);
-    setAllStats(stats.weaponStats);
-    setActivityStats(stats.activitystats);
+    setWeaponsStats(stats.weaponStats);
+    setActivityStats(stats.activityStats);
     setIsLoading(true);
   };
 
   useEffect(() => {
     if (!isLoading) {
       loading();
+      document.title = `Destiny stats ${displayName}`;
     }
   });
 
@@ -93,41 +103,46 @@ const ShowAccountInfo = () => {
 
   const showWitchStats = () => {
     if (witchStats) {
-      return <ShowAllTimeStats stats={allStats.pvp.allTime} />;
+      return <ShowAllTimeStats stats={weaponsStats.pvp.allTime} />;
     } else {
-      return <ShowAllTimeStats stats={allStats.pve.allTime} />;
+      return <ShowAllTimeStats stats={weaponsStats.pve.allTime} />;
     }
   };
 
   const changeAcctivity = (change: boolean) => {
     if (change) {
       setWitchStats(true);
-      setPvpBackgroundColor("white");
-      setPveBackgroundColor("darkgrey");
     } else {
       setWitchStats(false);
-      setPvpBackgroundColor("darkgrey");
-      setPveBackgroundColor("white");
     }
   };
 
+  const showActivity = () => {
+    if(witchStats) {
+      return <ActivityStatsPvP stats={activityStats}/>
+    } else {
+      return <ActivityStatsPvE stats={activityStats}/>
+    }
+  }
+
   return (
     <div>
-      <div className="">{chars}</div>
+      <div className="itemAcc">{chars}</div>
       <div className="activitySelect">
         <h3
-          style={{ backgroundColor: pvpBackgroundColor }}
+          style={{ backgroundColor: witchStats ? "white" : "darkgrey" }}
           onClick={() => changeAcctivity(true)}
         >
           PvP
         </h3>
         <h3
-          style={{ backgroundColor: pveBackgroundColor }}
+          style={{ backgroundColor: witchStats ? "darkgrey" : "white" }}
           onClick={() => changeAcctivity(false)}
         >
           PvE
         </h3>
       </div>
+      {showActivity()}
       {showWitchStats()}
     </div>
   );

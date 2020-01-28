@@ -1,0 +1,30 @@
+.selectBar {
+  display: inline-block;
+  background-color: #d6d6d6;
+}
+
+.selectPlatform {
+  height: 100%;
+  border: none;
+  border-top-left-radius: 99px;
+  border-bottom-left-radius: 99px;
+  background-color: #d6d6d6;
+  padding: 0 10px;
+}
+.selectBar h4 {
+  text-align: center;
+  margin: 0px;
+}
+
+.selectBar ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.selectBar ul p {
+  cursor: pointer;
+}
+
+.selectBar ul li {
+  cursor: pointer;
+}

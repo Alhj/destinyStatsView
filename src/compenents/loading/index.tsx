@@ -1,8 +1,9 @@
 import React from "react";
+import './loading.css'
 
-const Loading: (props: any) => JSX.Element = (props: any) => {
+const Loading = () => {
   return (
-    <div>
+    <div className="loadingDiv">
       <h1>Loading...</h1>
     </div>
   );

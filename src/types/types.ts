@@ -1,3 +1,8 @@
+export interface actionTypes {
+  type: string,
+  payload: string
+}
+
 export interface respons {
   statusCode: number
   message: string
@@ -15,7 +20,7 @@ export interface responsAllChars {
   message: string
   Response: {
     weaponStats: allCharactersStats
-    activitystats: activityPvEPVP
+    activityStats: activityPvEPVP
   }
 }
 
@@ -39,6 +44,8 @@ export interface activityStats {
   kills: weaponKillsStats
   killsDeathsRatio: activitiesInfoStats
   precisionKills: weaponKillsStats
+  publicEventsCompleted:activitiesInfoStats
+  heroicPublicEventsCompleted:activitiesInfoStats
 }
 
 

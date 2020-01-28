@@ -1,0 +1,11 @@
+.loadingDiv 
+{
+ height: 45em;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ 
+}
+.loadingDiv h1 {
+  margin: 0;
+}

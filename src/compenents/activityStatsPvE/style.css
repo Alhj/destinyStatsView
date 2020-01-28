@@ -1,0 +1,28 @@
+.activtyStats {
+  background-color: #929191;
+  border-top: solid black 1px;
+}
+
+.activtyStats h3 {
+  color: white;
+}
+
+.activtyStats h2 {
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-bottom-right-radius: 99px;
+  display: flex;
+  width: 10%;
+  margin-bottom: 2px;
+  padding-bottom: 5px;
+  margin-top: 0px;
+}
+
+.cointener {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 2 33%;
+}

@@ -33,6 +33,24 @@
   color: whitesmoke;
 }
 
+
+@media only screen and (max-width: 800px) {
+  .primary h2,
+  .special h2,
+  .heavy h2,
+  .abilty h2 {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-bottom-right-radius: 99px;
+    display: flex;
+    width: 27%;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+  }
+
+}
+
 @media only screen and (max-width: 600px) {
   .primary h2,
   .special h2,
@@ -53,7 +71,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 590px) {
   .primary h2,
   .special h2,
   .heavy h2,
