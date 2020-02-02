@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import Loading from "../loading";
 import ShowAllTimeStats from "../showAllTimeStats";
 import ActivityStatsPvP from "../activityStatsPvP";
-import ActivityStatsPvE from '../activityStatsPvE';
+import ActivityStatsPvE from "../activityStatsPvE";
+//import OverAllStats from '../overAllStats';
 import { getAccountInfo, getAccountStats } from "../../helpers/getAccountInfo";
 import { characters, errorInFetch } from "../../types/types";
 import {
@@ -118,12 +119,12 @@ const ShowAccountInfo = () => {
   };
 
   const showActivity = () => {
-    if(witchStats) {
-      return <ActivityStatsPvP stats={activityStats}/>
+    if (witchStats) {
+      return <ActivityStatsPvP stats={activityStats} />;
     } else {
-      return <ActivityStatsPvE stats={activityStats}/>
+      return <ActivityStatsPvE stats={activityStats} />;
     }
-  }
+  };
 
   return (
     <div>

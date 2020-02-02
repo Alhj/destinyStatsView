@@ -1,3 +1,22 @@
+.cointenerAccountInfo {
+display: flex;
+width: 100%;
+}
+
+.itemAccountInfo {
+  flex: 2 50%;
+}
+.AccountStatsAll {
+  display: flex;
+  background-color: #929191;
+  height: 100%;
+}
+
+.allTimeLow {
+  flex: 1 33%;
+}
+
+
 .characterInfo {
   display: flex;
   justify-content: space-between;
@@ -10,7 +29,7 @@
 }
 
 .emblem {
-  width: 30%;
+  width: 25%;
   background-size: cover;
 }
 
@@ -42,5 +61,9 @@
   .emblem {
     width: 100%;
     background-size: cover;
+  }
+
+  .cointenerAccountInfo {
+    display: block;
   }
 }
