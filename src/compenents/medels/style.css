@@ -1,38 +1,42 @@
-.activtyStats {
-  background-color: #5B89A6;
-  border-top: solid white 1px;
-}
-
-
-.activtyStats h2 {
+.medel h2 {
+  color: white;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-  color: white;
   border-bottom-right-radius: 99px;
-  display: flex;
-  width: 10%;
+  width: 12%;
   margin-bottom: 2px;
   padding-bottom: 5px;
   margin-top: 0px;
-  padding: 10px;
 }
 
-.cointener {
-  display: flex;
+
+.medel {
+  border-top: 2px solid white;
+  background-color: #5B89A6
+}
+
+.medels {
   flex-wrap: wrap;
 }
 
-.cointener h3 {
+.medels .medelsComponent{
+  flex: 1 25%;
+}
+
+.showStats {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+
+.showStats h3 {
   color: white;
 }
 
-.item {
-  flex: 2 33%;
-}
-
-
 @media only screen and (max-width: 1024px) {
-  .activtyStats h2 {
+  .medel h2 {
     border-bottom: 2px solid;
     border-right: 2px solid;
     border-bottom-right-radius: 99px;
@@ -44,9 +48,21 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .medel h2 {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-bottom-right-radius: 99px;
+    display: flex;
+    width: 33%;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+  }
+ }
 
-@media only screen and (max-width: 800px) {
-  .activtyStats h2 {
+ @media only screen and (max-width: 580px) {
+   .medel h2 {
     border-bottom: 2px solid;
     border-right: 2px solid;
     border-bottom-right-radius: 99px;
@@ -55,21 +71,5 @@
     margin-bottom: 2px;
     padding-bottom: 5px;
     margin-top: 0px;
-  }
-}
-
-@media only screen and (max-width: 590px) {
-  .activtyStats h2 {
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-    border-bottom-right-radius: 99px;
-    display: flex;
-    width: 36%;
-    margin-bottom: 2px;
-    padding-bottom: 5px;
-    margin-top: 0px;
-  }
-  .item {
-    flex: 2 50%;
-  }
-}
+   }
+ }

@@ -1,5 +1,5 @@
-import { respons } from '../types/types';
-import { responsAllChars, errorInFetch, profilId } from '../types/types';
+import { respons } from '../../types/types';
+import { responsAllChars, errorInFetch, profilId } from '../../types/types';
 
 const getAccountInfo = async (platformNumber: string | undefined, accountName: string | undefined) => {
 
@@ -39,6 +39,9 @@ const getAccountStats = async (platformNumber: string | undefined, userName: str
   };
 
   const accoutnData: responsAllChars = await fetch(`http://destinystatsapi.herokuapp.com/stats/${platformNumber}/${userName}`, config).then(res => res.json());
+  
+  console.log(accoutnData);
+
   return accoutnData.Response
 };
 
@@ -57,7 +60,6 @@ const getAccountProfil = async (platformNumber: string | undefined, displayName:
   };
 
   const respons: profilId | errorInFetch = await fetch(`http://destinystatsapi.herokuapp.com/profil/${platformNumber}/${displayName}`, config).then(res => res.json());
-
 
   return respons;
 

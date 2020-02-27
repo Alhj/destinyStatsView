@@ -1,6 +1,6 @@
 export interface actionTypes {
   type: string,
-  payload: string
+  payload: string | number
 }
 
 export interface respons {
@@ -21,6 +21,7 @@ export interface responsAllChars {
   Response: {
     weaponStats: allCharactersStats
     activityStats: activityPvEPVP
+    pvpMedels:medels
   }
 }
 
@@ -101,6 +102,16 @@ export interface profilId {
   Respons: string
 }
 
+export interface medels {
+  medalAvenger:activitiesInfoStats
+  medalPayback:activitiesInfoStats
+  medalStreak5x:activitiesInfoStats
+  medalQuickStrike:activitiesInfoStats
+  medalDefeatWarlockSigil: activitiesInfoStats
+  medalDefeatHunterDodge: activitiesInfoStats
+  medalDefeatTitanBrace: activitiesInfoStats
+  medalStreak10x:activitiesInfoStats
+  }
 
 interface activitiesInfoStats {
   statId: string

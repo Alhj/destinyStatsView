@@ -1,5 +1,9 @@
 .header h1 {
-  color: whitesmoke;
+  padding: 10px
+}
+
+.header h1 a {
+  color: #F2F2F2;
 }
 
 .header {
@@ -8,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: lightslategray;
+  background-color: #5B89A6;
 }
 
 @media only screen and (max-width: 600px) {

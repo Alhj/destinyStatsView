@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 
-import { getAccountProfil } from "../../helpers/getAccountInfo";
+import { getAccountProfil } from "../../helpers/fetch/getAccountInfo";
 import { profilId, errorInFetch } from "../../types/types";
 
 import Loading from "../loading";

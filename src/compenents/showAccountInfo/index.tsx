@@ -5,13 +5,13 @@ import Loading from "../loading";
 import ShowAllTimeStats from "../showAllTimeStats";
 import ActivityStatsPvP from "../activityStatsPvP";
 import ActivityStatsPvE from "../activityStatsPvE";
-//import OverAllStats from '../overAllStats';
-import { getAccountInfo, getAccountStats } from "../../helpers/getAccountInfo";
-import { characters, errorInFetch } from "../../types/types";
+import Medels from "../medels";
 import {
-  genereateTempleteWeaponStats,
-  genereateTempleteActivity
-} from "../../helpers/genereateTemplete/generateAllStatsMocObject";
+  getAccountInfo,
+  getAccountStats
+} from "../../helpers/fetch/getAccountInfo";
+import { characters, errorInFetch } from "../../types/types";
+import { medels, allCharactersStats, activityPvEPVP } from "../../types/types";
 import "./showAccountInfo.css";
 
 const url: string = "https://www.bungie.net";
@@ -31,12 +31,11 @@ const ShowAccountInfo = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [accountCharacters, setAccountCharacters] = useState([firstChar]);
-  const [weaponsStats, setWeaponsStats] = useState(
-    genereateTempleteWeaponStats()
-  );
-  const [activityStats, setActivityStats] = useState(
-    genereateTempleteActivity()
-  );
+  const [weaponsStats, setWeaponsStats] = useState<allCharactersStats>();
+  const [activityStats, setActivityStats] = useState<activityPvEPVP>();
+
+  const [medelStats, setMedelStats] = useState<medels>();
+
   const [witchStats, setWitchStats] = useState(true);
   const { platformNumber, accountName } = useParams();
 
@@ -69,6 +68,7 @@ const ShowAccountInfo = () => {
     setAccountCharacters(charInfo as characters[]);
     setWeaponsStats(stats.weaponStats);
     setActivityStats(stats.activityStats);
+    setMedelStats(stats.pvpMedels);
     setIsLoading(true);
   };
 
@@ -104,9 +104,17 @@ const ShowAccountInfo = () => {
 
   const showWitchStats = () => {
     if (witchStats) {
-      return <ShowAllTimeStats stats={weaponsStats.pvp.allTime} />;
+      return (
+        <ShowAllTimeStats
+          stats={(weaponsStats as allCharactersStats).pvp.allTime}
+        />
+      );
     } else {
-      return <ShowAllTimeStats stats={weaponsStats.pve.allTime} />;
+      return (
+        <ShowAllTimeStats
+          stats={(weaponsStats as allCharactersStats).pve.allTime}
+        />
+      );
     }
   };
 
@@ -120,32 +128,47 @@ const ShowAccountInfo = () => {
 
   const showActivity = () => {
     if (witchStats) {
-      return <ActivityStatsPvP stats={activityStats} />;
+      return <ActivityStatsPvP stats={activityStats as activityPvEPVP} />;
     } else {
-      return <ActivityStatsPvE stats={activityStats} />;
+      return <ActivityStatsPvE stats={activityStats as activityPvEPVP} />;
+    }
+  };
+
+  const showMedels = () => {
+    if (witchStats) {
+      return "";
+    } else {
+      return "";
     }
   };
 
   return (
-    <div>
-      <div className="itemAcc">{chars}</div>
-      <div className="activitySelect">
-        <h3
-          style={{ backgroundColor: witchStats ? "white" : "darkgrey" }}
-          onClick={() => changeAcctivity(true)}
-        >
-          PvP
-        </h3>
-        <h3
-          style={{ backgroundColor: witchStats ? "darkgrey" : "white" }}
-          onClick={() => changeAcctivity(false)}
-        >
-          PvE
-        </h3>
+    <section className="accountStats contentWraper">
+      <div className="cointenerMain">
+        <div className="cointenerAccountInfo">
+          <div className="itemAccountInfo">
+            <div className="itemAcc">{chars}</div>
+          </div>
+        </div>
+        <div className="activitySelect">
+          <h3
+            style={{ backgroundColor: witchStats ? "#5B89A6" : "#8C0303" }}
+            onClick={() => changeAcctivity(true)}
+          >
+            PvP
+          </h3>
+          <h3
+            style={{ backgroundColor: witchStats ? "#8C0303" : "#5B89A6" }}
+            onClick={() => changeAcctivity(false)}
+          >
+            PvE
+          </h3>
+        </div>
+        {showActivity()}
+        {showWitchStats()}
+        {showMedels()}
       </div>
-      {showActivity()}
-      {showWitchStats()}
-    </div>
+    </section>
   );
 };
 

@@ -1,5 +1,6 @@
 .SearchBar{
   height: 30px;
+  padding: 10px;
   display: flex;
 }
 
@@ -8,7 +9,6 @@
   border: none;
   border-top-left-radius: 99px;
   border-bottom-left-radius: 99px;
-  background-color: #d6d6d6;
 }
 
 .SearchBar input {
@@ -20,6 +20,7 @@
 .SearchBar select, .SearchBar input, .SearchBar button {
   font-size: 1.1em;
   padding: 0 10px;
+  background-color: #F2F2F2;
 }
 
 .SearchBar button {
@@ -27,7 +28,6 @@
   border: none;
   border-left: 0.05em solid black;
   cursor: pointer;
-  background-color: white;
   border-top-right-radius: 99px;
   border-bottom-right-radius: 99px;
 }
@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 450px) {
   .SearchBar {
     display: block;
   }

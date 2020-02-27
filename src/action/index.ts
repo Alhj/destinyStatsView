@@ -7,3 +7,11 @@ export const setDisplayName = (displayName: string) => {
   }
   return obj;
 }
+
+export const setWindowSize = (size: number) => {
+  const obj: actionTypes = {
+    type: 'SETWINDOWSIZE',
+    payload: size
+  }
+  return obj;
+}

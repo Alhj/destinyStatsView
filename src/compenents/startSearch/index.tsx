@@ -19,10 +19,12 @@ const StartSearch = () => {
   });
 
   return (
+    <section className="startSerch">
     <div>
       <h1>account name</h1>
       <SearchBar />
     </div>
+    </section>
   );
 };
 

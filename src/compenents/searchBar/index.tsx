@@ -36,7 +36,7 @@ const SearchBar: () => JSX.Element = () => {
   const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setUserName("");
-    dispatch(setDisplayName(userName))
+    dispatch(setDisplayName(userName));
     history.push(`/getProfil/${platformNumber}/${userName}/`);
   };
 
