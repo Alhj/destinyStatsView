@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { gerenteStats } from "../../helpers/genereateTemplete/generateAllStatsMocObject";
 import { allStats } from "../../types/types";
 import { windowWidthCheck } from "../../helpers/lib/window";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./showAllTimeStats.css";
 
@@ -64,7 +65,13 @@ const ShowWeaponStats = (props: propsInterface) => {
             </div>
           </div>
           <span className="showStats" onClick={() => handelClick(1)}>
-            <h3>{showAbilitys ? "-" : "+"}</h3>
+            <span className="fontArrow">
+              {showAbilitys ? (
+                <FontAwesomeIcon icon="arrow-up" color="white" />
+              ) : (
+                <FontAwesomeIcon icon="arrow-down" color="white" />
+              )}
+            </span>
           </span>
         </div>
         <div className="primary">
@@ -194,7 +201,13 @@ const ShowWeaponStats = (props: propsInterface) => {
             </div>
           </div>
           <span className="showStats" onClick={() => handelClick(2)}>
-            <h3> {showPrimary ? "-" : "+"}</h3>
+          <span className="fontArrow">
+              {showPrimary ? (
+                <FontAwesomeIcon icon="arrow-up" color="white" />
+              ) : (
+                <FontAwesomeIcon icon="arrow-down" color="white" />
+              )}
+            </span>
           </span>
         </div>
         <div className="special">
@@ -256,7 +269,13 @@ const ShowWeaponStats = (props: propsInterface) => {
             </div>
           </div>
           <span className="showStats" onClick={() => handelClick(3)}>
-            <h3>{showSpecial ? "-" : "+"}</h3>
+            <span className="fontArrow">
+              {showSpecial ? (
+                <FontAwesomeIcon icon="arrow-up" color="white" />
+              ) : (
+                <FontAwesomeIcon icon="arrow-down" color="white" />
+              )}
+            </span>
           </span>
         </div>
         <div className="heavy">
@@ -311,7 +330,13 @@ const ShowWeaponStats = (props: propsInterface) => {
             </div>
           </div>
           <span className="showStats" onClick={() => handelClick(4)}>
-            <h3>{showHeavy ? "-" : "+"}</h3>
+            <span className="fontArrow">
+              {showHeavy ? (
+                <FontAwesomeIcon icon="arrow-up" color="white" />
+              ) : (
+                <FontAwesomeIcon icon="arrow-down" color="white" />
+              )}
+            </span>
           </span>
         </div>
       </div>

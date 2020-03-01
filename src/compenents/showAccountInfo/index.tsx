@@ -136,7 +136,7 @@ const ShowAccountInfo = () => {
 
   const showMedels = () => {
     if (witchStats) {
-      return "";
+      return <Medels medels={medelStats as medels} />;
     } else {
       return "";
     }

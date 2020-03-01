@@ -8,7 +8,7 @@
 .heavy,
 .abilty {
   border-top: 1px solid white;
-  background-color: #5B89A6;
+  background-color: #5b89a6;
 }
 
 .primary h2,
@@ -24,7 +24,7 @@
   margin-bottom: 2px;
   padding-bottom: 5px;
   margin-top: 0px;
-  padding:10px;
+  padding: 10px;
 }
 
 .item {
@@ -32,7 +32,31 @@
 }
 
 .item h3 {
-  color: #F2F2F2;
+  color: #f2f2f2;
+}
+
+.fontArrow {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1400px) {
+  .primary h2,
+  .special h2,
+  .heavy h2,
+  .abilty h2 {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-bottom-right-radius: 99px;
+    display: flex;
+    width: 27%;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -49,9 +73,7 @@
     padding-bottom: 5px;
     margin-top: 0px;
   }
-
 }
-
 
 @media only screen and (max-width: 800px) {
   .primary h2,
@@ -67,7 +89,6 @@
     padding-bottom: 5px;
     margin-top: 0px;
   }
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -104,5 +125,4 @@
     padding-bottom: 5px;
     margin-top: 0px;
   }
-
 }

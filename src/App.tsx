@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import { faArrowUp , faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import Header from "./compenents/header";
 import StartSearch from "./compenents/startSearch";
@@ -8,6 +11,10 @@ import GetPlayerProfil from "./compenents/getPlayerProfil";
 import NoCharacter from './compenents/noCharacterFound';
 import Footer from './compenents/footer';
 import Medels from './compenents/medels';
+
+
+library.add(fab, faArrowUp, faArrowDown);
+
 const App: React.FC = () => {
   return (
     <Router>

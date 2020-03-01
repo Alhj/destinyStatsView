@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { activityPvEPVP } from "../../types/types";
 import { windowWidthCheck } from "../../helpers/lib/window";
 import "./style.css";
@@ -43,7 +45,11 @@ const ActivityStatsPvE = (props: stats) => {
           </div>
         </div>
         <span className="showStats" onClick={() => handelClick()}>
-          <h3>{show ? "-" : "+"}</h3>
+          <h3>{show ? (
+                <FontAwesomeIcon icon="arrow-up" color="white" />
+              ) : (
+                <FontAwesomeIcon icon="arrow-down" color="white" />
+              )}</h3>
         </span>
       </div>
     </section>

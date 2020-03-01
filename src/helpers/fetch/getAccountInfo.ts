@@ -40,8 +40,6 @@ const getAccountStats = async (platformNumber: string | undefined, userName: str
 
   const accoutnData: responsAllChars = await fetch(`http://destinystatsapi.herokuapp.com/stats/${platformNumber}/${userName}`, config).then(res => res.json());
   
-  console.log(accoutnData);
-
   return accoutnData.Response
 };
 
