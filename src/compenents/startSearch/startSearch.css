@@ -2,3 +2,18 @@
   color: white;
   padding: 10px;
 }
+
+.serachBarStart {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .serachBarStart {
+    height: 50vh;
+  }
+} 

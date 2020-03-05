@@ -3,27 +3,26 @@ import SearchBar from "../searchBar";
 import "./startSearch.css";
 
 const StartSearch = () => {
-
   const [loading, setLoading] = useState(false);
 
   const setTitle = () => {
-    document.title = 'Destiny stats'
+    document.title = "Destiny stats";
 
     setLoading(true);
   };
 
   useEffect(() => {
-    if(!loading) {
+    if (!loading) {
       setTitle();
     }
   });
 
   return (
     <section className="startSerch">
-    <div>
-      <h1>account name</h1>
-      <SearchBar />
-    </div>
+      <div className="serachBarStart">
+        <h1>account name</h1>
+        <SearchBar />
+      </div>
     </section>
   );
 };
